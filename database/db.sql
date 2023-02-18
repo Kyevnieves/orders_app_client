@@ -5,6 +5,7 @@ CREATE TABLE products(
     productname VARCHAR(100) NOT NULL,
     productcod VARCHAR(100) NOT NULL,
     productprice VARCHAR(100) NOT NULL,
+    productimg VARCHAR(300) NOT NULL,
 )
 
 USE database_orders;

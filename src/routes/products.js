@@ -8,6 +8,7 @@ router.post('/product/add', async (req, res)=>{
         productname,
         productcod,
         productprice,
+        productimg,
       };
     const response = await pool.query("INSERT INTO products set ?", [newProduct]);
     res.send(response)
