@@ -1,9 +1,27 @@
--- 
-
-CREATE DATABASE database_orders;
+---- CREAR TABLA PRODUCTOS
+USE database_orders;
+CREATE TABLE products(
+    id INT(11) NOT NULL,
+    productname VARCHAR(100) NOT NULL,
+    productcod VARCHAR(100) NOT NULL,
+    productprice VARCHAR(100) NOT NULL,
+)
 
 USE database_orders;
+ALTER TABLE products
+ADD PRIMARY KEY (id);
 
+USE database_orders;
+ALTER TABLE products
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
+USE database_orders;
+DESCRIBE products;
+
+
+---- CREAR TABLA USUARIOS
+CREATE DATABASE database_orders;
+USE database_orders;
 CREATE TABLE users(
     id INT(11) NOT NULL,
     username VARCHAR(16) NOT NULL,
@@ -24,10 +42,10 @@ USE database_orders;
 ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
-USE database_orders
+USE database_orders;
 DESCRIBE users;
 
----- LINK TABLES
+---- CREAR TABLA LINKS
 
 CREATE TABLE links (
     id INT(11) NOT NULL,
