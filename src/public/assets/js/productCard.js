@@ -30,12 +30,20 @@ btnPedido.addEventListener("click", () => {
   listarProductos();
 });
 
-const obj = [];
+const pedido = [];
+let companyname = document.querySelector(".company-name").textContent;
+let companyrif = document.querySelector(".company-rif").textContent;
+let companyInfo = {
+  companyname,
+  companyrif,
+};
 const cardsProduct = document.querySelectorAll(".card-product");
 const listarProductos = () => {
+  let inputPedido = document.querySelector(".inputPedido");
   cardsProduct.forEach((card) => {
     let producto = card.querySelector(".producto").textContent;
-    let precio = card.querySelector(".precio").textContent;
+    let precioString = card.querySelector(".precio").textContent;
+    let precio = precioString.slice(0, -1);
     let codigo = card.querySelector(".codigo").textContent;
     let cantidad = card.querySelector(".cantidad").value;
     if (cantidad == 0) {
@@ -47,7 +55,16 @@ const listarProductos = () => {
       precio,
       cantidad,
     };
-    obj.push(json);
+    pedido.push(json);
   });
-  console.log(obj);
+
+  const orderInfo = [
+    {
+      companyInfo,
+      pedido,
+    },
+  ];
+
+  const string = JSON.stringify(orderInfo);
+  inputPedido.value = string;
 };

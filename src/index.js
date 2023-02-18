@@ -7,11 +7,13 @@ const { database } = require("./keys");
 const path = require("path");
 const MySQLStore = require("express-mysql-session");
 const passport = require("passport");
+const { config } = require("dotenv");
+config();
 // INICIALIZACIONES
 const app = express();
 require("./lib/passport");
 // CONFIGURACIONES
-app.set("port", 80);
+app.set("port", process.env.SERVER_PORT || process.env.SERVER_PORT_LOCAL_HOST);
 app.set("views", path.join(__dirname, "views"));
 app.engine(
   ".hbs",

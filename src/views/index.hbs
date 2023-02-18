@@ -85,12 +85,15 @@
                 </div>
             </div>
         </div>
+        <form action="/orders/add" method="post">
+        <input type="text" value="" class="inputPedido display-none" name="pedido">
         <div class="container">
             <div class="cta">
                 <button class="btn btn-outline-dark btn-volver">Volver</button>
-                <button class="btn btn-dark btn-realizar-pedido">Realizar pedido</button>
+                <button class="btn btn-dark btn-realizar-pedido" type="submit">Realizar pedido</button>
             </div>
         </div>
+        </form>
     </main><!-- End #main -->
     <div class="alert-container">
         <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade alert-pedido"

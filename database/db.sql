@@ -1,25 +1,3 @@
----- CREAR TABLA PRODUCTOS
-USE database_orders;
-CREATE TABLE products(
-    id INT(11) NOT NULL,
-    productname VARCHAR(100) NOT NULL,
-    productcod VARCHAR(100) NOT NULL,
-    productprice VARCHAR(100) NOT NULL,
-    productimg VARCHAR(300) NOT NULL,
-)
-
-USE database_orders;
-ALTER TABLE products
-ADD PRIMARY KEY (id);
-
-USE database_orders;
-ALTER TABLE products
-    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
-
-USE database_orders;
-DESCRIBE products;
-
-
 ---- CREAR TABLA USUARIOS
 CREATE DATABASE database_orders;
 USE database_orders;
@@ -45,6 +23,52 @@ ALTER TABLE users
 
 USE database_orders;
 DESCRIBE users;
+
+
+---- CREAR TABLA PRODUCTOS
+USE database_orders;
+CREATE TABLE products(
+    id INT(11) NOT NULL,
+    productname VARCHAR(100) NOT NULL,
+    productcod VARCHAR(100) NOT NULL,
+    productprice VARCHAR(100) NOT NULL,
+    productimg VARCHAR(300) NOT NULL,
+)
+
+USE database_orders;
+ALTER TABLE products
+ADD PRIMARY KEY (id);
+
+USE database_orders;
+ALTER TABLE products
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
+USE database_orders;
+DESCRIBE products;
+
+
+
+---- CREAR TABLA PEDIDOS
+USE database_orders;
+CREATE TABLE orders(
+    id INT(11) NOT NULL,
+    companyid INT(11) NOT NULL,
+    pedido VARCHAR(1000) NOT NULL,
+    procesado BOOLEAN NULL,
+    enviado BOOLEAN NULL,
+)
+
+USE database_orders;
+ALTER TABLE orders
+ADD PRIMARY KEY (id);
+
+USE database_orders;
+ALTER TABLE orders
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
+USE database_orders;
+DESCRIBE orders;
+
 
 ---- CREAR TABLA LINKS
 
