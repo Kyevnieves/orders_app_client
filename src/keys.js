@@ -1,11 +1,20 @@
 module.exports = {
   database: {
+    host: "srv-captain--kyevdb-db",
+    user: "root",
+    password: "Fuhrer?*2720",
+    database: "mysql",
+  },
+};
+/*
+TRABAJAR EN LOCAL
+database: {
     host: "localhost",
     user: "root",
     password: "Fuhrer?*12",
     database: "database_orders",
   },
-};
+*/
 
 /* PLANETSCALE
 database: {
