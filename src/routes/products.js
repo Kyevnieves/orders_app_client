@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../database");
 
 router.post('/product/add', async (req, res)=>{
-    const { productname, productcod, productprice } = req.body;
+    const { productname, productcod, productprice, productimg } = req.body;
     const newProduct = {
         productname,
         productcod,
