@@ -1,6 +1,16 @@
 const mysql = require("mysql");
+const { database } = require("./keys");
+const mysql2 = require("mysql2");
+const connection = mysql2.createConnection(database);
 
-/* const { database } = require("./keys");
+connection.query(
+  'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45',
+  function (err, results, fields) {
+    console.log(results); // results contains rows returned by server
+    console.log(fields); // fields contains extra meta data about results, if available
+  }
+);
+/*
 const { promisify } = require("util");
 const pool = mysql.createPool(database);
 
@@ -27,21 +37,3 @@ pool.query = promisify(pool.query);
 
 module.exports = pool;
 */
-
-const connection = mysql.createConnection({
-  host: "srv-captain--kyevdb-db",
-  user: "root",
-  password: "Fuhrer?*2720",
-  database: "database_orders",
-  insecureAuth: true,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
-
-connection.connect(function (err) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log("Conectado a la base de datos");
-});

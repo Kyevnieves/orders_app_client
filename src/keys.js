@@ -3,6 +3,7 @@ module.exports = {
     host: "srv-captain--kyevdb-db",
     user: "root",
     password: "Fuhrer?*2720",
+    database: "database_orders",
   },
 };
 /*
