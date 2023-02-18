@@ -1,9 +1,10 @@
 module.exports = {
   database: {
-    host: "http://srv-captain--kyevdb-db",
+    host: "srv-captain--kyevdb-db",
     user: "root",
     password: "Fuhrer?*2720",
     database: "database_orders",
+    port: 3306,
     ssl: {
       rejectUnauthorized: false,
     },
