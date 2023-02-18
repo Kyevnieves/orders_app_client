@@ -33,6 +33,10 @@ const connection = mysql.createConnection({
   user: "root",
   password: "Fuhrer?*2720",
   database: "database_orders",
+  insecureAuth: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 connection.connect(function (err) {
