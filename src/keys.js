@@ -4,19 +4,24 @@ module.exports = {
     user: "root",
     password: "Fuhrer?*2720",
     database: "database_orders",
+    ssl: {
+      rejectUnauthorized: true,
+    },
   },
 };
-/*
-TRABAJAR EN LOCAL
-database: {
+
+/* 
+  LOCALHOST
+   database: {
     host: "localhost",
     user: "root",
     password: "Fuhrer?*12",
     database: "database_orders",
-  },
-*/
+   }
 
-/* PLANETSCALE
+
+
+PLANETSCALE
 database: {
     host: "us-east.connect.psdb.cloud",
     user: "8anxj3juqfzqmkb70l3w",
