@@ -52,6 +52,7 @@ passport.use(
         companyaddress,
         companyphone,
         companyemail,
+        companylogo,
       } = req.body;
       let newUser = {
         username,
@@ -61,6 +62,7 @@ passport.use(
         companyaddress,
         companyphone,
         companyemail,
+        companylogo,
       };
       newUser.password = await helpers.encryptPassword(password);
       // Saving in the Database
