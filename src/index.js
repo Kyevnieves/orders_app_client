@@ -11,7 +11,7 @@ const passport = require("passport");
 const app = express();
 require("./lib/passport");
 // CONFIGURACIONES
-app.set("port", 4000);
+app.set("port", 80);
 app.set("views", path.join(__dirname, "views"));
 app.engine(
   ".hbs",
