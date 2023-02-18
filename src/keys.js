@@ -5,7 +5,7 @@ module.exports = {
     password: "Fuhrer?*2720",
     database: "database_orders",
     ssl: {
-      rejectUnauthorized: true,
+      rejectUnauthorized: false,
     },
   },
 };
