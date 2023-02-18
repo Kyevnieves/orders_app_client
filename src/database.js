@@ -1,5 +1,6 @@
 const mysql = require("mysql");
-const { database } = require("./keys");
+
+/* const { database } = require("./keys");
 const { promisify } = require("util");
 const pool = mysql.createPool(database);
 
@@ -25,3 +26,18 @@ pool.getConnection((error, connection) => {
 pool.query = promisify(pool.query);
 
 module.exports = pool;
+*/
+
+const connection = mysql.createConnection({
+  host: "srv-captain--kyevdb-db",
+  user: "root",
+  password: "Fuhrer?*2720",
+  database: "database_orders",
+});
+
+connection.connect(function (err) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log("Conectado a la base de datos");
+});
