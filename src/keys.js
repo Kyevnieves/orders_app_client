@@ -6,7 +6,6 @@ module.exports = {
     database: "database_orders",
   },
 };
-console.log("object");
 /* 
   LOCALHOST
    database: {

@@ -58,7 +58,3 @@ app.use(express.static(path.join(__dirname, "public")));
 app.listen(app.get("port"), () => {
   console.log(`Servidor en puerto ${app.get("port")}`);
 });
-
-app.use((req, res) => {
-  res.status(404).json({ message: "error" });
-});
