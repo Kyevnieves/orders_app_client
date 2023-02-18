@@ -1,13 +1,9 @@
 module.exports = {
   database: {
-    host: "srv-captain--kyevdb-db",
-    port: "3306",
+    host: "srv-captain--mysqlviejo-db",
     user: "root",
     password: "Fuhrer?*2720",
     database: "database_orders",
-    ssl: {
-      rejectUnauthorized: false,
-    },
   },
 };
 console.log("object");

@@ -24,6 +24,7 @@ USE database_orders;
 ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
+USE database_orders
 DESCRIBE users;
 
 ---- LINK TABLES
