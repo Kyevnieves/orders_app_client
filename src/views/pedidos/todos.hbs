@@ -37,15 +37,15 @@
                                         <tr>
                                             <th scope="row">{{idcorrelativo}}</th>
                                             <td><span class="date">{{fecha}}</span></td>
-                                            {{#if procesado includeZero=true}}
-                                            <td><span class="badge bg-secondary">En espera</span></td>
-                                            {{else}}
+                                            {{#if procesado includeZero=false}}
                                             <td><span class="badge bg-success">Correcto</span></td>
+                                            {{else}}
+                                            <td><span class="badge bg-secondary">En espera</span></td>
                                             {{/if}}
-                                            {{#if enviado includeZero=true}}
-                                            <td><span class="badge bg-secondary">En espera</span></td>
-                                            {{else}}
+                                            {{#if enviado includeZero=false}}
                                             <td><span class="badge bg-success">Correcto</span></td>
+                                            {{else}}
+                                            <td><span class="badge bg-secondary">En espera</span></td>
                                             {{/if}}
                                             <td><a href="/pedido/{{id}}" class="btn btn-primary"><i class="bi bi-search"></i></a></td>
                                         </tr>

@@ -25,6 +25,12 @@ USE database_orders;
 DESCRIBE users;
 
 
+---- CREANDO USUARIOS CON PERMISOS SUPERUSUARIO
+ALTER TABLE `users` ADD `superuser` BOOLEAN NOT NULL AFTER `idorder`;
+UPDATE `users` SET `superuser` = '1' WHERE `users`.`id` = 1;
+
+
+
 ---- CREAR TABLA PRODUCTOS
 USE database_orders;
 CREATE TABLE products(
@@ -78,3 +84,15 @@ ALTER TABLE `orders` ADD `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAM
 ALTER TABLE `orders` ADD `idcorrelativo` INT NOT NULL AFTER `companyid`;
 ---- AUMENTAR TAMAÑO DE CARACTERES SOPORTADOS POR COLUMA PEDIDO
 ALTER TABLE `orders` CHANGE `pedido` `pedido` VARCHAR(3001) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+
+
+---- CAMBIAR ESTADO DE ORDEN A ENVIADO EN BASE A LOS IDS EN IN
+UPDATE `orders`
+   SET `enviado` = NOT `enviado`
+ WHERE `id` IN(7,8,9)
+
+---- CAMBIAR ESTADO DE ORDEN A PROCESADO EN BASE A LOS IDS EN IN
+UPDATE `orders`
+   SET `procesado` = NOT `procesado`
+ WHERE `id` IN(7,8,9)

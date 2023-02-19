@@ -17,7 +17,6 @@ router.get("/pedidos", async (req, res) => {
   const pedido = await pool.query(
     `SELECT * FROM orders WHERE companyid = ${req.user.id}`
   );
-
   const pedidoObj = [];
   pedido.forEach((p) => {
     let fecha = formatearDate(p.createdAt);
@@ -31,7 +30,6 @@ router.get("/pedidos", async (req, res) => {
     };
     pedidoObj.push(json);
   });
-  console.log(pedidoObj);
   res.render("pedidos/todos", { pedidoObj });
 });
 
@@ -62,7 +60,7 @@ router.post("/orders/add", async (req, res) => {
   };
 
   const response = await pool.query("INSERT INTO orders set ?", [newOrder]);
-  res.send(response);
+  res.redirect(`/pedido/${response.insertId}`);
 });
 
 module.exports = router;

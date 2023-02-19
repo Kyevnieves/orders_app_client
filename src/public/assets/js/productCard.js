@@ -23,12 +23,14 @@ btnDecre.forEach((btn) => {
   });
 });
 
-btnPedido.addEventListener("click", () => {
-  let alert = document.querySelector(".alert-pedido");
-  alert.classList.toggle("show");
-  btnPedido.classList.add("display-none");
-  listarProductos();
-});
+btnPedido == undefined
+  ? console.log("")
+  : btnPedido.addEventListener("click", () => {
+      let alert = document.querySelector(".alert-pedido");
+      alert.classList.toggle("show");
+      btnPedido.classList.add("display-none");
+      listarProductos();
+    });
 
 const pedido = [];
 let fecha = Date.now();
