@@ -3,7 +3,7 @@
         <h1>Pedidos</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
                 <li class="breadcrumb-item">Pedidos</li>
                 <li class="breadcrumb-item active">Todos</li>
             </ol>
@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Pedidos</h5>
+                        <h5 class="card-title">Todos los pedidos</h5>
                         <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                             <div class="dataTable-container">
                                 <table class="table datatable dataTable-table">
@@ -23,23 +23,31 @@
                                             <th scope="col" data-sortable="" style="width: 5.57895%;"><a href="#"
                                                     class="datatable-sorter">#</a></th>
                                             <th scope="col" data-sortable="" style="width: 27.8947%;"><a href="#"
-                                                    class="datatable-sorter">Name</a></th>
+                                                    class="datatable-sorter">Fecha</a></th>
                                             <th scope="col" data-sortable="" style="width: 37.0526%;"><a href="#"
-                                                    class="datatable-sorter">Position</a></th>
+                                                    class="datatable-sorter">Procesado</a></th>
                                             <th scope="col" data-sortable="" style="width: 9.68421%;"><a href="#"
-                                                    class="datatable-sorter">Age</a></th>
+                                                    class="datatable-sorter">Enviado</a></th>
                                             <th scope="col" data-sortable="" style="width: 19.7895%;"><a href="#"
-                                                    class="datatable-sorter">Estado</a></th>
+                                                    class="datatable-sorter">Ver pedido</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{#each pedido}}
+                                        {{#each pedidoObj}}
                                         <tr>
-                                            <th scope="row">{{id}}</th>
-                                            <td>{{companyid}}</td>
-                                            <td><button data-pedido="{{pedido}}" class="btn btn-success btn-pedido">Pedido</button></td>
-                                            <td>28</td> 
-                                            <td>2016-05-25</td>
+                                            <th scope="row">{{idcorrelativo}}</th>
+                                            <td><span class="date">{{fecha}}</span></td>
+                                            {{#if procesado includeZero=true}}
+                                            <td><span class="badge bg-secondary">En espera</span></td>
+                                            {{else}}
+                                            <td><span class="badge bg-success">Correcto</span></td>
+                                            {{/if}}
+                                            {{#if enviado includeZero=true}}
+                                            <td><span class="badge bg-secondary">En espera</span></td>
+                                            {{else}}
+                                            <td><span class="badge bg-success">Correcto</span></td>
+                                            {{/if}}
+                                            <td><a href="/pedido/{{id}}" class="btn btn-primary"><i class="bi bi-search"></i></a></td>
                                         </tr>
                                         {{else}}
                                         {{/each}}

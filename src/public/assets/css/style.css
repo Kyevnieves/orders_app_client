@@ -232,6 +232,7 @@ h6 {
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  overflow: scroll;
 }
 
 .card-header,
@@ -1352,4 +1353,7 @@ select{
 .datatable-top{
   display: flex;
   justify-content: space-between;
+}
+.badge{
+  font-size: 14px;
 }

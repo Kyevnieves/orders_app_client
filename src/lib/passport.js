@@ -63,6 +63,7 @@ passport.use(
         companyphone,
         companyemail,
         companylogo,
+        idorder: 1,
       };
       newUser.password = await helpers.encryptPassword(password);
       // Saving in the Database

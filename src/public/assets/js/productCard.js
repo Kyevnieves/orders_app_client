@@ -31,13 +31,16 @@ btnPedido.addEventListener("click", () => {
 });
 
 const pedido = [];
+let fecha = Date.now();
 let companyname = document.querySelector(".company-name").textContent;
 let companyrif = document.querySelector(".company-rif").textContent;
 let companyInfo = {
+  fecha,
   companyname,
   companyrif,
 };
 const cardsProduct = document.querySelectorAll(".card-product");
+let indice = 1;
 const listarProductos = () => {
   let inputPedido = document.querySelector(".inputPedido");
   cardsProduct.forEach((card) => {
@@ -50,11 +53,13 @@ const listarProductos = () => {
       return;
     }
     let json = {
+      indice,
       producto,
       codigo,
       precio,
       cantidad,
     };
+    indice++;
     pedido.push(json);
   });
 
