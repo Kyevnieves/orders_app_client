@@ -60,4 +60,5 @@ app.use(express.static(path.join(__dirname, "public")));
 // INICIAR EL SERVIDOR
 app.listen(app.get("port"), () => {
   console.log(`Servidor en puerto ${app.get("port")}`);
+  console.log("object");
 });
