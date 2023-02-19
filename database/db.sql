@@ -47,6 +47,7 @@ USE database_orders;
 DESCRIBE products;
 
 ---- CREAR CORRELATIVO DE PEDIDOS PARA USUARIOS
+USE database_orders;
 ALTER TABLE `users` ADD `idorder` INT NOT NULL AFTER `companylogo`;
 
 
@@ -74,23 +75,6 @@ DESCRIBE orders;
 ---- CURRENT TIMESTAMP EN TABLA ORDENES
 ALTER TABLE `orders` ADD `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `enviado`;
 ---- CREAR CORRELATIVO DE PEDIDOS PARA USUARIOS
-ALTER TABLE `orders` CHANGE `companyid` `idcorrelativo` INT(11) NOT NULL;
+ALTER TABLE `orders` ADD `idcorrelativo` INT NOT NULL AFTER `companyid`;
 ---- AUMENTAR TAMAÑO DE CARACTERES SOPORTADOS POR COLUMA PEDIDO
 ALTER TABLE `orders` CHANGE `pedido` `pedido` VARCHAR(3001) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
-
----- CREAR TABLA LINKS
-
-CREATE TABLE links (
-    id INT(11) NOT NULL,
-    title VARCHAR(150) NOT NULL,
-    url VARCHAR(255) NOT NULL,
-    description TEXT,
-    user_id INT(11),
-    created_at timeStamp NOT NULL DEFAULT current_timestamp
-);
-
-ALTER TABLE links
-    ADD PRIMARY KEY (id);
-
-ALTER TABLE links 
-    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
