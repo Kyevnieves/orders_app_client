@@ -54,6 +54,7 @@ router.post("/orders/add", async (req, res) => {
   const newOrder = {
     companyid: req.user.id,
     idcorrelativo: req.user.idorder,
+    companyname: req.user.companyname,
     pedido,
     procesado: 0,
     enviado: 0,
