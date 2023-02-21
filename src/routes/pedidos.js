@@ -39,8 +39,7 @@ router.get("/pedido/:id", async (req, res) => {
   let strgPedido = pedido[0].pedido;
   let arrayPedido = JSON.parse(strgPedido);
   let jsonPedido = arrayPedido[0].pedido;
-  let date = arrayPedido[0].companyInfo;
-  let fecha = formatearDate(date.fecha);
+  let fecha = formatearDate(pedido[0].createdAt);
   let jsonFecha = [fecha];
   res.render("pedidos/pedido", { jsonPedido, jsonFecha });
 });
@@ -59,7 +58,6 @@ router.post("/orders/add", async (req, res) => {
     procesado: 0,
     enviado: 0,
   };
-
   const response = await pool.query("INSERT INTO orders set ?", [newOrder]);
   res.redirect(`/pedido/${response.insertId}`);
 });

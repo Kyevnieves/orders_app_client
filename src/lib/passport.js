@@ -36,7 +36,7 @@ passport.use(
     }
   )
 );
-
+/* 
 passport.use(
   "local.signup",
   new LocalStrategy(
@@ -73,7 +73,7 @@ passport.use(
     }
   )
 );
-
+*/
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
