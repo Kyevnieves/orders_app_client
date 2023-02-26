@@ -1,13 +1,23 @@
 const express = require("express");
+const pool = require("../database");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("index");
+const obtenerProductosDeUsuario = (productsID) => {
+  return pool.query(`SELECT * FROM products WHERE id IN ${productsID}`);
+};
+
+router.get("/", async (req, res) => {
+  if (req.user) {
+    const response = await pool.query(
+      `SELECT * FROM users WHERE id = ${req.user.id}`
+    );
+    const productosHabilitados = response[0].products;
+    const myProducts = await obtenerProductosDeUsuario(productosHabilitados);
+    res.render("index", { myProducts });
+  }
+  if (!req.user) {
+    res.render("index");
+  }
 });
-router.get("/login", (req, res) => {
-  res.render("auth/login");
-});
-router.get("/perfil", (req, res) => {
-  res.render("auth/profile");
-});
+
 module.exports = router;

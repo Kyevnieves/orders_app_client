@@ -26,6 +26,7 @@ router.get("/pedidos", async (req, res) => {
       companyname: req.user.companyname,
       procesado: p.procesado,
       enviado: p.enviado,
+      cancelado: p.cancelado,
       fecha,
     };
     pedidoObj.push(json);
@@ -44,11 +45,22 @@ router.get("/pedido/:id", async (req, res) => {
   res.render("pedidos/pedido", { jsonPedido, jsonFecha });
 });
 
+router.get("/cancelar/pedido/:id", async (req, res) => {
+  let { id } = req.params;
+  const response = await pool.query(
+    `UPDATE orders SET cancelado = 1 WHERE id = ${id}`
+  );
+  res.redirect("/pedidos");
+});
+
 router.post("/orders/add", async (req, res) => {
   const { pedido } = req.body;
   await pool.query(
     `UPDATE users SET idorder = idorder + 1 WHERE id = ${req.user.id}`
   );
+
+  const fecha = new Date();
+  const month = fecha.getMonth() + 1;
 
   const newOrder = {
     companyid: req.user.id,
@@ -57,7 +69,9 @@ router.post("/orders/add", async (req, res) => {
     pedido,
     procesado: 0,
     enviado: 0,
+    month,
   };
+
   const response = await pool.query("INSERT INTO orders set ?", [newOrder]);
   res.redirect(`/pedido/${response.insertId}`);
 });

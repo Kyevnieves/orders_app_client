@@ -29,7 +29,7 @@
                                             <th scope="col" data-sortable="" style="width: 9.68421%;"><a href="#"
                                                     class="datatable-sorter">Enviado</a></th>
                                             <th scope="col" data-sortable="" style="width: 19.7895%;"><a href="#"
-                                                    class="datatable-sorter">Ver pedido</a></th>
+                                                    class="datatable-sorter">Acciones</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,17 +37,25 @@
                                         <tr>
                                             <th scope="row">{{idcorrelativo}}</th>
                                             <td><span class="date">{{fecha}}</span></td>
-                                            {{#if procesado includeZero=false}}
-                                            <td><span class="badge bg-success">Correcto</span></td>
+                                            {{#if cancelado includeZero=false}}
+                                            <td><span class="badge bg-danger">Cancelado</span></td>
+                                            <td><span class="badge bg-danger">Cancelado</span></td>
                                             {{else}}
-                                            <td><span class="badge bg-secondary">En espera</span></td>
+                                                    {{#if procesado includeZero=false}}
+                                                    <td><span class="badge bg-success">Correcto</span></td>
+                                                    {{else}}
+                                                    <td><span class="badge bg-secondary">En espera</span></td>
+                                                    {{/if}}
+                                                    {{#if enviado includeZero=false}}
+                                                    <td><span class="badge bg-success">Correcto</span></td>
+                                                    {{else}}
+                                                    <td><span class="badge bg-secondary">En espera</span></td>
+                                                    {{/if}}
                                             {{/if}}
-                                            {{#if enviado includeZero=false}}
-                                            <td><span class="badge bg-success">Correcto</span></td>
-                                            {{else}}
-                                            <td><span class="badge bg-secondary">En espera</span></td>
-                                            {{/if}}
-                                            <td><a href="/pedido/{{id}}" class="btn btn-primary"><i class="bi bi-search"></i></a></td>
+                                            <td>
+                                                <a href="/pedido/{{id}}" class="btn btn-primary"><i class="bi bi-search"></i> Ver</a>
+                                                <a href="/cancelar/pedido/{{id}}" class="btn btn-danger"><i class="bi bi-clipboard-minus"></i> Cancelar</a>
+                                            </td>
                                         </tr>
                                         {{else}}
                                         {{/each}}
