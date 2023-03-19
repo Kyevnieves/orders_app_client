@@ -52,14 +52,11 @@ app.use((req, res, next) => {
 app.use(require("./routes"));
 app.use(require("./routes/authentication"));
 app.use(require("./routes/pedidos"));
-app.use(require("./routes/products"));
 app.use(require("./routes/usuario"));
-app.use("/links", require("./routes/links"));
 
 // PUBLIC
 app.use(express.static(path.join(__dirname, "public")));
 // INICIAR EL SERVIDOR
 app.listen(app.get("port"), () => {
   console.log(`Servidor en puerto ${app.get("port")}`);
-  console.log("object");
 });
